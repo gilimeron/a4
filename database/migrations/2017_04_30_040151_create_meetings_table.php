@@ -17,7 +17,7 @@ class CreateMeetingsTable extends Migration
 
       		$table->increments('id');
       		$table->timestamps();
-      		$table->datetime('meeting_date');
+      		$table->string('meeting_date');
 
           $table->integer('game_id')->unsigned();
           $table->integer('player_id')->unsigned();

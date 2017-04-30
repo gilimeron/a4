@@ -5,11 +5,6 @@
     Add a new player
 @endsection
 
-@push('head')
-    <link href='/css/styles.css' rel='stylesheet'>
-@endpush
-
-
 @section('content')
     <h1>Add a new player</h1>
 
@@ -19,16 +14,16 @@
         <small>* Required fields</small>
 
         <label for='first_name'>* First name</label>
-        <input type='text' name='first_name' id='first_name' value='{{ old('first_name', 'John') }}'>
+        <input type='text' name='first_name' id='first_name' value='{{ old('first_name', '') }}'>
 
         <label for='last_name'>* Last name</label>
-        <input type='text' name='last_name' id='last_name' value='{{ old('last_name', 'Doh') }}'>
+        <input type='text' name='last_name' id='last_name' value='{{ old('last_name', '') }}'>
 
         <label for='age'>Age</label>
-        <input type='text' name='age' id='age' value='{{ old('age', '30') }}'>
+        <input type='text' name='age' id='age' value='{{ old('age', '') }}'>
 
-        <label for='email'>email Address</label>
-        <input type='text' name='email' id='email' value='{{ old('email', 'johnd@gmail.com') }}'>
+        <label for='email'>* email Address</label>
+        <input type='text' name='email' id='email' value='{{ old('email', '') }}'>
 
 
         @if(count($errors) > 0)

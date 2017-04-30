@@ -44,7 +44,7 @@ class GameController extends Controller
     * /games/new
     * Process the form for adding a new game
     */
-    public function saveGame(Request $request) {
+    public function saveNewGame(Request $request) {
 
         $this->validate($request, [
             'game_name' => 'required',
@@ -91,7 +91,7 @@ class GameController extends Controller
     * /games/edit
     * Process form to save edits to a game
     */
-    public function saveEdit(Request $request) {
+    public function saveGame(Request $request) {
 
         $this->validate($request, [
         ]);
@@ -108,7 +108,7 @@ class GameController extends Controller
         $game->save();
 
         Session::flash('message', 'Your changes to '.$game->game_name.' were saved.');
-        return redirect('/games/edit/'.$request->id);
+        return redirect('/games');
 
     }
 

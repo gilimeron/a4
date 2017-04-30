@@ -5,9 +5,6 @@
     Edit game: {{ $game->game_name }}
 @endsection
 
-@push('head')
-    <link href='/css/styles.css' rel='stylesheet'>
-@endpush
 
 @section('content')
     <h1>Edit</h1>

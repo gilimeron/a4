@@ -5,11 +5,6 @@
     Add a new game
 @endsection
 
-@push('head')
-    <link href='/css/styles.css' rel='stylesheet'>
-@endpush
-
-
 @section('content')
     <h1>Add a new game</h1>
 
@@ -19,19 +14,19 @@
         <small>* Required fields</small>
 
         <label for='game_name'>* Game name</label>
-        <input type='text' name='game_name' id='game_name' value='{{ old('game_name', 'Settlers of Catan') }}'>
+        <input type='text' name='game_name' id='game_name' value='{{ old('game_name', '') }}'>
 
         <label for='players'>Number of players</label>
-        <input type='text' name='players' id='players' value='{{ old('players', 2-4) }}'>
+        <input type='text' name='players' id='players' value='{{ old('players', '') }}'>
 
         <label for='age'>Age range</label>
-        <input type='text' name='age' id='age' value='{{ old('age', '7-70') }}'>
+        <input type='text' name='age' id='age' value='{{ old('age', '') }}'>
 
         <label for='time'>Estimated play time</label>
-        <input type='text' name='time' id='time' value='{{ old('time', '2 hours') }}'>
+        <input type='text' name='time' id='time' value='{{ old('time', '') }}'>
 
         <label for='genre'>Genre</label>
-        <input type='text' name='genre' id='genre' value='{{ old('genre', 'strategy') }}'>
+        <input type='text' name='genre' id='genre' value='{{ old('genre', '') }}'>
 
 
         @if(count($errors) > 0)

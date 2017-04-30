@@ -18,7 +18,7 @@ Route::get('/games', 'GameController@index');
 Route::get('/games/new', 'GameController@addGame');
 
 #POST route to process the new game
-Route::post('/games/new', 'GameController@saveGame');
+Route::post('/games/new', 'GameController@saveNewGame');
 
 #GET route to edit a game
 Route::get('/games/edit/{id}', 'GameController@editGame');
@@ -53,11 +53,14 @@ Route::get('/players/delete/{id}', 'PlayerController@confirmPlayerDeletion');
 #POST route to remove the player from db
 Route::post('/players/delete', 'PlayerController@delete');
 
-#GET route to view all scheduled game nights
+#GET route to view all scheduled meetings
 Route::get('/meetings', 'MeetingController@index');
 
-#POST route to schedule a new game night
-Route::post('/meetings/new', 'MeetingController@addMeeting');
+#GET route to schedule a new meeting
+Route::get('/meetings/new', 'MeetingController@addMeeting');
+
+#POST route to process the new meeting
+Route::post('/meetings/new', 'MeetingController@saveNewMeeting');
 
 /**
 * Log viewer

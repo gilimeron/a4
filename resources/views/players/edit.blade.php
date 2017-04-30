@@ -5,10 +5,6 @@
     Edit player: {{ $player->first_name }}
 @endsection
 
-@push('head')
-    <link href='/css/styles.css' rel='stylesheet'>
-@endpush
-
 @section('content')
     <h1>Edit</h1>
     <h2>{{ $player->first_name }}</h2>

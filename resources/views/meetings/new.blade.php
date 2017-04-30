@@ -5,11 +5,6 @@
     Add a new meeting
 @endsection
 
-@push('head')
-    <link href='/css/styles.css' rel='stylesheet'>
-@endpush
-
-
 @section('content')
     <h1>Add a new meeting</h1>
 
@@ -19,7 +14,7 @@
         <small>* Required fields</small>
 
         <label for='meeting_date'>* Meeting date</label>
-        <input type='text' name='meeting_date' id='meeting_date' value='{{ old('meeting_date', '04/30/2017') }}'>
+        <input type='text' name='meeting_date' id='meeting_date' value='{{ old('meeting_date', '') }}'>
 
         <label>* Games</label>
         <ul id='games'>
@@ -36,7 +31,7 @@
 
         <label>* Players</label>
         <ul id='players'>
-            @foreach($playersForCheckboxes as $id => $player_name)
+            @foreach($playersForCheckboxes as $id => $first_name)
                 <li><input
                     type='checkbox'
                     value='{{ $id }}'

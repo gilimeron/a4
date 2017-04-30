@@ -34,7 +34,6 @@ class PlayerController extends Controller
     * Display the form to add a new player
     */
     public function addPlayer(Request $request) {
-
         return view('players.new');
     }
 
@@ -93,9 +92,12 @@ class PlayerController extends Controller
     * /players/edit
     * Process form to save edits to a player
     */
-    public function saveEdit(Request $request) {
+    public function savePlayer(Request $request) {
 
         $this->validate($request, [
+            'first_name' => 'required',
+            'last_name' => 'required',
+            'email' => 'required',
         ]);
 
         $player = Player::find($request->id);
@@ -108,8 +110,8 @@ class PlayerController extends Controller
 
         $player->save();
 
-        Session::flash('message', 'Your changes to '.$player->first_name.' were saved.');
-        return redirect('/players/edit/'.$request->id);
+        Session::flash('message', 'Your changes to '.$player->first_name.' ' .$player->last_name.' were saved.');
+        return redirect('/players');
 
     }
 
