@@ -20,11 +20,8 @@ class GameController extends Controller
 
         $games = Game::orderBy('game_name')->get(); # Query DB
 
-        $newGames = Game::orderBy('created_at', 'descending')->limit(3)->get(); # Query DB
-
         return view('games.index')->with([
             'games' => $games,
-            'newGames' => $newGames,
         ]);
     }
 

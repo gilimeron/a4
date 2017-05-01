@@ -10,20 +10,19 @@ class Game extends Model
   * Relationship method
   */
   public function meetings() {
-  # Player has many Meetings
-  # Define a one-to-many relationship.
+  # Game has many Meetings - one to many relationships
       return $this->hasMany('App\Meeting');
   }
 
-  public static function getGamesForCheckboxes() {
+  public static function gamesForDropdown() {
 
-      $players = Player::orderBy('first_name','ASC')->get();
+      $games = Game::orderBy('game_name','ASC')->get();
 
-      $playersForCheckboxes = [];
+      $gamesForDropdown = [];
 
-      foreach($players as $player) {
-          $playersForCheckboxes[$player['id']] = $player->first_name;
+      foreach($games as $game) {
+          $gamesForDropdown[$game['id']] = $game->game_name;
       }
-      return $playersForCheckboxes;
+      return $gamesForDropdown;
   }
 }

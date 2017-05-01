@@ -6,8 +6,11 @@ use Illuminate\Database\Eloquent\Model;
 
 class Meeting extends Model
 {
-  public function books() {
+  public function games() {
       return $this->belongsToMany('App\Game')->withTimestamps();
-      return $this->belongsToMany('App\Player')->withTimestamps();
+  }
+
+  public function players() {
+      return $this->belongsToMany('App\Player');
   }
 }

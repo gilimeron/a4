@@ -19,13 +19,13 @@ class MeetingController extends Controller
     */
     public function index(Request $request) {
 
-        $meetings = Meeting::orderBy('meeting_date')->get(); # Query DB
-        $newMeetings = Meeting::orderBy('created_at', 'descending')->limit(3)->get(); # Query DB
+        $meetings = Meeting::get();
+        $games = Game::get();
 
 
         return view('meetings.index')->with([
             'meetings' => $meetings,
-            'newMeetings' => $newMeetings,
+            'games' => $games,
         ]);
     }
 
@@ -37,11 +37,11 @@ class MeetingController extends Controller
     */
     public function addMeeting(Request $request) {
 
-        $gamesForCheckboxes = Game::getGamesForCheckboxes();
-        $playersForCheckboxes = Player::getPlayersForCheckboxes();
+        $gamesForDropdown = Game::gamesForDropdown();
+        $playersForCheckboxes = Player::playersForCheckboxes();
 
         return view('meetings.new')->with([
-            'gamesForCheckboxes' => $gamesForCheckboxes,
+            'gamesForDropdown' => $gamesForDropdown,
             'playersForCheckboxes' => $playersForCheckboxes,
         ]);
     }
@@ -57,20 +57,25 @@ class MeetingController extends Controller
         #Custom error message
         $messages = [
             'game_id.not_in' => 'No games were selected',
-            'player_id.not_in' => 'No players were selected',
+
         ];
 
         $this->validate($request, [
-            'game_id' => 'required',
-            'player_id' => 'required',
-            'meeting_date' => 'required',
+            'game_id' => 'not_in:0',
+        #    'player_id' => 'required',
+            'meeting_date' => 'required'
         ], $messages);
 
         # Add new meeting to database
         $meeting = new Meeting();
         $meeting->meeting_date = $request->meeting_date;
-        $meeting->players = $request->player_id;
-        $meeting->games = $request->game_id;
+        $meeting->game_id = $request->game_id;
+        #$meeting->save();
+        $meeting->meeting_id = $meeting->id;
+
+        $players = $request->player_id;
+        $meeting->players_id->sync($players);
+
         $meeting->save();
 
         Session::flash('message', 'The meeting was added to the database.');

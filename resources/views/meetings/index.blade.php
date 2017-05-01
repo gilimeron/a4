@@ -10,8 +10,12 @@
         @foreach($meetings as $meeting)
             <li>
                 Date:{{ $meeting->meeting_date }},
-                Players:{{ $meeting->player_id }}, 
-                Games:{{ $meeting->game_id }}
+                <br/>
+                @foreach($games as $game)
+                    @if ($game->id == $meeting->game_id)
+                        Game:{{ $game->game_name }}
+                    @endif
+                @endforeach
             </li>
         @endforeach
     </div>

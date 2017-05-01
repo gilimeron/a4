@@ -6,26 +6,24 @@ use Illuminate\Database\Eloquent\Model;
 
 class Player extends Model
 {
+  /**
+  * Relationship method
+  */
+  public function meeting() {
+  # Player has many meetings - one-to-many relationship.
+      return $this->belongsToMany('App\Meeting');
+  }
 
-    /**
-  	* Relationship method
-  	*/
-    public function meetings() {
-  	# Player has many Meetings
-  	# Define a one-to-many relationship.
-    		return $this->hasMany('App\Meeting');
-    }
+  public static function PlayersForCheckboxes() {
 
-    public static function getPlayersForCheckboxes() {
+      $players = Player::orderBy('first_name','ASC')->get();
 
-        $games = Game::orderBy('game_name','ASC')->get();
+      $playersForCheckboxes = [];
 
-        $gamesForCheckboxes = [];
-
-        foreach($games as $game) {
-            $gamesForCheckboxes[$game['id']] = $game->game_name;
-        }
-        return $gamesForCheckboxes;
-    }
+      foreach($players as $player) {
+          $playersForCheckboxes[$player['id']] = $player->first_name.', '.$player->last_name;
+      }
+      return $playersForCheckboxes;
+  }
 
 }

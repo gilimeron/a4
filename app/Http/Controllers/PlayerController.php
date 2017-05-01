@@ -20,11 +20,8 @@ class PlayerController extends Controller
 
         $players = Player::orderBy('first_name')->get(); # Query DB
 
-        $newPlayers = Player::orderBy('created_at', 'descending')->limit(3)->get(); # Query DB
-
         return view('players.index')->with([
             'players' => $players,
-            'newPlayers' => $newPlayers,
         ]);
     }
 

@@ -18,13 +18,12 @@ class CreateMeetingsTable extends Migration
       		$table->increments('id');
       		$table->timestamps();
       		$table->string('meeting_date');
-
           $table->integer('game_id')->unsigned();
-          $table->integer('player_id')->unsigned();
-
-          # Make foreign keys
+          $table->string('players')->nullable();
+          # Define the foreign keys
           $table->foreign('game_id')->references('id')->on('games');
-          $table->foreign('player_id')->references('id')->on('players');
+
+
       	});
     }
 

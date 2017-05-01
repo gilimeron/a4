@@ -16,18 +16,15 @@
         <label for='meeting_date'>* Meeting date</label>
         <input type='text' name='meeting_date' id='meeting_date' value='{{ old('meeting_date', '') }}'>
 
-        <label>* Games</label>
-        <ul id='games'>
-            @foreach($gamesForCheckboxes as $id => $game_name)
-                <li><input
-                    type='checkbox'
-                    value='{{ $id }}'
-                    id='game_{{ $id }}'
-                    name='games[]'
-                >&nbsp;
-                <label for='game_{{ $id }}'>{{ $game_name }}</label></li>
+        <label for='game_id'>* Game:</label>
+        <select id='game_id' name='game_id'>
+            <option value='0'>Choose</option>
+            @foreach($gamesForDropdown as $game_id => $game_name)
+                <option value='{{ $game_id }}'>
+                    {{ $game_name }}
+                </option>
             @endforeach
-        </ul>
+        </select>
 
         <label>* Players</label>
         <ul id='players'>
