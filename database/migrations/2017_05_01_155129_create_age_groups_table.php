@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateGamesTable extends Migration
+class CreateAgeGroupsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,17 +13,12 @@ class CreateGamesTable extends Migration
      */
     public function up()
     {
-      Schema::create('games', function (Blueprint $table) {
-
+      Schema::create('age_groups', function (Blueprint $table)
+      {
       		$table->increments('id');
       		$table->timestamps();
-      		$table->string('game_name');
-      		$table->string('players')->nullable();
-      		$table->string('age_range')->nullable();
-      		$table->string('estimated_play_time')->nullable();
-      		$table->string('genre')->nullable();
-
-      	});
+      		$table->string('age_group_name');
+      });
     }
 
     /**
@@ -33,6 +28,6 @@ class CreateGamesTable extends Migration
      */
     public function down()
     {
-        Schema::drop('games');
+        Schema::drop('age_groups');
     }
 }

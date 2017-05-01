@@ -21,11 +21,13 @@ class MeetingController extends Controller
 
         $meetings = Meeting::get();
         $games = Game::get();
+        $players = Player::get();
 
 
         return view('meetings.index')->with([
             'meetings' => $meetings,
             'games' => $games,
+            'players' => $players,
         ]);
     }
 

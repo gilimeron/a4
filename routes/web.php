@@ -11,26 +11,26 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-#GET route to view all games
-Route::get('/games', 'GameController@index');
+#GET route to view all babies
+Route::get('/babies', 'BabyController@index');
 
-#GET route to add a new game
-Route::get('/games/new', 'GameController@addGame');
+#GET route to add a new babies
+Route::get('/babies/new', 'BabyController@addBaby');
 
-#POST route to process the new game
-Route::post('/games/new', 'GameController@saveNewGame');
+#POST route to process the new baby
+Route::post('/babies/new', 'BabyController@saveNewBaby');
 
-#GET route to edit a game
-Route::get('/games/edit/{id}', 'GameController@editGame');
+#GET route to edit a baby
+Route::get('/babies/edit/{id}', 'BabyController@editBaby');
 
-#POST route to save an edited game
-Route::post('/games/edit', 'GameController@saveGame');
+#POST route to save an edited baby
+Route::post('/babies/edit', 'BabyController@saveBaby');
 
-# Get route to confirm deletion of a game
-Route::get('/games/delete/{id}', 'GameController@confirmGameDeletion');
+# Get route to confirm deletion of a baby
+Route::get('/babies/delete/{id}', 'BabyController@confirmBabyDeletion');
 
-# Post route to actually remove the game from db
-Route::post('/games/delete', 'GameController@delete');
+# Post route to actually remove the baby from db
+Route::post('/babies/delete', 'BabyController@delete');
 
 #GET route to view all players
 Route::get('/players', 'PlayerController@index');
@@ -73,8 +73,8 @@ if(config('app.env') == 'local') {
 # drop db and rebuild
 if(App::environment('local')) {
     Route::get('/drop', function() {
-        DB::statement('DROP database games');
-        DB::statement('CREATE database games');
-        return 'Dropped games; created games.';
+        DB::statement('DROP database daycare');
+        DB::statement('CREATE database daycare');
+        return 'Dropped daycare; created daycare.';
     });
 };

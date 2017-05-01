@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateMeetingsTable extends Migration
+class CreateTeachersTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,18 +13,17 @@ class CreateMeetingsTable extends Migration
      */
     public function up()
     {
-      Schema::create('meetings', function (Blueprint $table) {
-
+      Schema::create('teachers', function (Blueprint $table)
+      {
       		$table->increments('id');
       		$table->timestamps();
-      		$table->string('meeting_date');
-          $table->integer('game_id')->unsigned();
-          $table->string('players')->nullable();
-          # Define the foreign keys
-          $table->foreign('game_id')->references('id')->on('games');
-
-
-      	});
+      		$table->string('first_name');
+      		$table->string('last_name');
+          $table->string('teacher_type');
+      		$table->string('address');
+          $table->string('phone_number');
+          $table->string('email');
+      });
     }
 
     /**
@@ -34,6 +33,6 @@ class CreateMeetingsTable extends Migration
      */
     public function down()
     {
-        Schema::drop('meetings');
+        Schema::drop('teachers');
     }
 }

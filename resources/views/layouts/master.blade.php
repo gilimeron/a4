@@ -2,7 +2,7 @@
 <html>
 <head>
     <title>
-        @yield('title', 'Board Game Nights Coordinator')
+        @yield('title', 'Daycare manager')
     </title>
 
     <meta charset='utf-8'>
@@ -26,12 +26,11 @@
             <nav>
                 <ul>
                       <li><a href='/'>Home</a></li>
-                      <li><a href='/games'>View games</a></li>
-                      <li><a href='/players'>View players</a></li>
-                      <li><a href='/meetings'>View meetings</a></li>
-                      <li><a href='/games/new'>Add a new game</a></li>
-                      <li><a href='/players/new'>Add a new player</a></li>
-                      <li><a href='/meetings/new'>Add a new meeting</a></li>
+                      <li><a href='/babies'>View babies</a></li>
+                      <li><a href='/teachers'>View teachers</a></li>
+                      <li><a href='/classrooms'>View classrooms</a></li>
+                      <li><a href='/babies/new'>Add a new baby</a></li>
+                      <li><a href='/teachers/new'>Add a new teacher</a></li>
                 </ul>
             </nav>
         </header>
