@@ -6,17 +6,15 @@
 
 @section('content')
     <h1> All classrooms </h2>
-    <div class='meeting'>
+    <div class='classroom'>
         @foreach($classrooms as $classroom)
-            <li>
-                Classroom name:{{ $classroom->classroom_name }},
-                <br/>
-                @foreach($babies as $baby)
-                    @if ($baby->id == $classroom->baby_id)
-                        Baby:{{ $baby->first_name }} {{ $baby->last_name }}
-                    @endif
-                @endforeach
-            </li>
+            <h3>
+                    Classroom name:{{ $classroom->classroom_name }}
+                  </h3>
+                    
+                    <a href='/classrooms/view/{{ $classroom->id}}'> View all classroom details </a>
+
+
         @endforeach
     </div>
 @endsection

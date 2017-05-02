@@ -32,36 +32,32 @@ Route::get('/babies/delete/{id}', 'BabyController@confirmBabyDeletion');
 # Post route to actually remove the baby from db
 Route::post('/babies/delete', 'BabyController@delete');
 
-#GET route to view all players
-Route::get('/players', 'PlayerController@index');
+#GET route to view all teachers
+Route::get('/teachers', 'TeacherController@index');
 
-#GET route to add a player
-Route::get('/players/new', 'PlayerController@addPlayer');
+#GET route to add a Teacher
+Route::get('/teachers/new', 'TeacherController@addTeacher');
 
-#POST route to process the new player
-Route::post('/players/new', 'PlayerController@saveNewPlayer');
+#POST route to process the new Teacher
+Route::post('/teachers/new', 'TeacherController@saveNewTeacher');
 
-#GET route to edit a player
-Route::get('/players/edit/{id}', 'PlayerController@editPlayer');
+#GET route to edit a Teacher
+Route::get('/teachers/edit/{id}', 'TeacherController@editTeacher');
 
-#POST route to save an edited player
-Route::post('/players/edit', 'PlayerController@savePlayer');
+#POST route to save an edited Teacher
+Route::post('/teachers/edit', 'TeacherController@saveTeacher');
 
-#GET route to confirm deletion of a player
-Route::get('/players/delete/{id}', 'PlayerController@confirmPlayerDeletion');
+#GET route to confirm deletion of a Teacher
+Route::get('/teachers/delete/{id}', 'TeacherController@confirmTeacherDeletion');
 
-#POST route to remove the player from db
-Route::post('/players/delete', 'PlayerController@delete');
+#POST route to remove the Teacher from db
+Route::post('/teachers/delete', 'TeacherController@delete');
 
-#GET route to view all scheduled meetings
-Route::get('/meetings', 'MeetingController@index');
+#GET route to view list of classrooms
+Route::get('/classrooms', 'ClassroomController@index');
 
-#GET route to schedule a new meeting
-Route::get('/meetings/new', 'MeetingController@addMeeting');
-
-#POST route to process the new meeting
-Route::post('/meetings/new', 'MeetingController@saveNewMeeting');
-
+#GET route to view classroom details
+Route::get('/classrooms/view/{id}', 'ClassroomController@viewClassroom');
 /**
 * Log viewer
 * (only accessible locally)

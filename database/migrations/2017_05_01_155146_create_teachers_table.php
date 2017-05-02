@@ -19,7 +19,7 @@ class CreateTeachersTable extends Migration
       		$table->timestamps();
       		$table->string('first_name');
       		$table->string('last_name');
-          $table->string('teacher_type');
+          $table->string('teacher_type')->nullable;
       		$table->string('address');
           $table->string('phone_number');
           $table->string('email');
