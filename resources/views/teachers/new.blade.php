@@ -6,7 +6,7 @@
 @endsection
 
 @section('content')
-    <h1>Add a new teacher</h1>
+    <h2>Add a new teacher</h2>
 
     <form method='POST' action='/teachers/new'>
         {{ csrf_field() }}
@@ -41,7 +41,8 @@
             </div>
         @endif
 
-        <input class='btn btn-primary' type='submit' value='Add new teacher'>
+        <input class='btn btn-primary' type='submit' value='Save'>
+        <input class='btn btn-primary' type="reset">
     </form>
 
 @endsection

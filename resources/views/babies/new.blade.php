@@ -2,11 +2,11 @@
 @extends('layouts.master')
 
 @section('title')
-    Add a new baby
+    Add a new child
 @endsection
 
 @section('content')
-    <h1>Add a new baby</h1>
+    <h2>Add a new child</h1>
 
     <form method='POST' action='/babies/new'>
         {{ csrf_field() }}
@@ -20,7 +20,7 @@
         <input type='text' name='last_name' id='last_name' value='{{ old('last_name') }}'>
 
         <label for='dob'>* Date of birth</label>
-        <input type='text' name='dob' id='dob' value='{{ old('dob') }}'>
+        <input type='date' name='dob' id='dob' value='{{ old('dob') }}'>
 
         <label for='age_group_id'>* Age group:</label>
         <select id='age_group_id' name='age_group_id'>
@@ -70,7 +70,9 @@
             </div>
         @endif
 
-        <input class='btn btn-primary' type='submit' value='Add new baby'>
+        <input class='btn btn-primary' type='submit' value='Save'>
+        <input class='btn btn-primary' type="reset">
+
     </form>
 
 @endsection

@@ -50,6 +50,14 @@ class BabyController extends Controller
     */
     public function saveNewBaby(Request $request) {
 
+        # Custom error message
+        $messages = [
+           'age_group_id.not_in' => 'Please select an age group',
+           'classroom_id.not_in' => 'Please select a classroom',
+           'dob.required' => 'The date of birth field is required',
+           'parent1_first_name.required' => 'First Name of parent is required',
+           'parent1_last_name.required' => 'Last name of parent is required',
+        ];
         $this->validate($request, [
             'first_name' => 'required',
             'last_name' => 'required',
@@ -58,11 +66,9 @@ class BabyController extends Controller
             'phone_number' => 'required',
             'parent1_first_name' => 'required',
             'parent1_last_name' => 'required',
-            'age_group_id' => 'required',
-            'parent1_last_name' => 'required',
-            'age_group_id' => 'required',
-            'classroom_id' => 'required',
-        ]);
+            'age_group_id' => 'not_in:0',
+            'classroom_id' => 'not_in:0',
+        ], $messages);
 
         # Add new baby to database
         $baby = new Baby();

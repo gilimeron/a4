@@ -1,20 +1,17 @@
 @extends('layouts.master')
 
 @section('title')
-    All the classrooms
+    Classrooms list
 @endsection
 
 @section('content')
-    <h1> All classrooms </h2>
+    <h2> Classrooms list </h2>
     <div class='classroom'>
         @foreach($classrooms as $classroom)
-            <h3>
-                    Classroom name:{{ $classroom->classroom_name }}
-                  </h3>
-                    
-                    <a href='/classrooms/view/{{ $classroom->id}}'> View all classroom details </a>
-
-
+            <ul>
+                <h3>{{ $classroom->classroom_name }}</h3>
+                <a href='/classrooms/view/{{ $classroom->id}}'> Details </a>
+            </ul>
         @endforeach
     </div>
 @endsection

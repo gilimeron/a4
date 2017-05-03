@@ -1,97 +1,19 @@
-/*----------------------------------------------------
-http://mystrd.at/modern-clean-css-sticky-footer
------------------------------------------------------*/
-html {
-    position:relative;
-    min-height:100%;
-}
-body {
-    margin:0 0 100px; /* bottom = footer height */
-}
-
-footer {
-    position: absolute;
-    left:0;
-    bottom:0;
-    height:30px;
-    width:100%;
-    background-color:#eee;
-    text-align:center;
-    padding:5px;
-}
-/* End Sticky Footer */
-
-
-/*----------------------------------------------------
-http://www.paulirish.com/2012/box-sizing-border-box-ftw/
------------------------------------------------------*/
-html {
-  box-sizing: border-box;
-}
-*, *:before, *:after {
-  box-sizing: inherit;
-}
-/* End Box Sizing */
-
-
-/*----------------------------------------------------
-http://nicolasgallagher.com/micro-clearfix-hack/
------------------------------------------------------*/
-.cf:before,
-.cf:after {
-    content: " "; /* 1 */
-    display: table; /* 2 */
-}
-
-.cf:after {
-    clear: both;
-}
-
-.cf {
-    *zoom: 1; /* For IE 6/7 only */
-}
-/* End clearfix */
-
-
-/*----------------------------------------------------
-Typography
------------------------------------------------------*/
 a:link, a:visited, a:active, a:hover {
-    text-decoration:underline;
     color:black;
+    text-decoration: underline;
 }
 
-html {
-    font-size:62.5%; /* base 10 */
-}
-
-h1, h2, h3, h4, h5, h6 {
-    text-align:center;
-}
-
-h1 {
-    font-size:3.5rem
+h1, h2, h3 {
+    text-align:left;
 }
 
 h2 {
-    font-size:3.0rem;
+    color:darkred;
 }
 
-h3 {
-    font-size:2.5rem
+#image {
+  float:right;
 }
-
-.truncate {
-    width:100%;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-}
-
-
-/*----------------------------------------------------
-Layout
------------------------------------------------------*/
 #content {
     padding:25px;
     width:70%;
@@ -100,38 +22,20 @@ Layout
 }
 
 section {
-    text-align:center;
+    text-align:left;
 }
 
 p {
     text-align:left;
 }
 
-@media (max-width: 800px) {
-    body {
-        width:100%;
-        padding:15px;
-    }
-}
-
-header {
-    text-align:center;
-}
-
-header #logo {
-    width:350px;
-}
-
 /* Flash messages shown at the top of the page */
 .message {
-    width:100%;
-    position:fixed;
-    top:0;
-    left:0;
+    width:50%;
     padding:5px;
     text-align:center;
     font-size:18px;
-    background-color:yellow;
+    background-color:rgba(24, 188, 156, 0.28);
 }
 
 .error {
@@ -172,37 +76,39 @@ nav ul li a:link {
 }
 
 nav ul li a:hover {
-    color:#18bc9c; /* flatly teel */
+    color:#a94442;
 }
 
 a.active:link, a.active:visited, a.active:active, a.active:hover {
-    color:#18bc9c;
+    color:rgba(51, 122, 183, 0.88);
 }
 
 
 /*----------------------------------------------------
 Forms
 -----------------------------------------------------*/
-label, legend {
+label {
     display:block;
     margin-top:20px;
     margin-bottom:0;
 }
 
-input[type=text], input[type=email], input[type=password], textarea, select {
+input[type=text], input[type=email], textarea, select {
     display:block;
-    width:100%;
+    width:50%;
     font-size:1.5rem;
     padding:3px;
     font-family:Consolas, Courier, monospace;
 }
 
-input[type='checkbox'], input[type='radio'] {
-    display:inline;
+input[type=submit] {
+    margin-top:10px;
+    background-color:darkred;
 }
 
-input[type='checkbox'] + label {
-    display:inline;
+input[type=reset] {
+    margin-top:10px;
+    background-color:darkgray;
 }
 
 label {
@@ -214,10 +120,4 @@ label {
     font-weight:bold;
     text-transform:uppercase;
     text-align:left;
-}
-
-
-#login, #register {
-    width:300px;
-    margin:auto;
 }

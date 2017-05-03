@@ -47,7 +47,7 @@ class TeacherController extends Controller
             'last_name' => 'required',
             'address' => 'required',
             'phone_number' => 'required',
-            'email' => 'required',
+            'email' => 'required|email',
 
         ]);
 

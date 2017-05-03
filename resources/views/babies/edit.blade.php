@@ -7,8 +7,7 @@
 
 
 @section('content')
-    <h1>Edit</h1>
-    <h2>{{ $baby->first_name }} {{ $baby->last_name }}</h2>
+    <h2> Edit: {{ $baby->first_name }} {{ $baby->last_name }}</h2>
 
     <form method='POST' action='/babies/edit'>
         {{ csrf_field() }}

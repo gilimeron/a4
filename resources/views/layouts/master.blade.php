@@ -16,7 +16,9 @@
 
 </head>
 <body>
-
+  <div id='image'>
+      <img src="/images/stickfigurekids.jpg" alt="stickfigurekids"</img>
+  </div>
     <div id='content'>
         @if(Session::get('message') != null)
             <div class='message'>{{ Session::get('message') }}</div>
@@ -26,10 +28,10 @@
             <nav>
                 <ul>
                       <li><a href='/'>Home</a></li>
-                      <li><a href='/babies'>View babies</a></li>
-                      <li><a href='/teachers'>View teachers</a></li>
-                      <li><a href='/classrooms'>View classrooms</a></li>
-                      <li><a href='/babies/new'>Add a new baby</a></li>
+                      <li><a href='/babies'>Children</a></li>
+                      <li><a href='/teachers'>Teachers</a></li>
+                      <li><a href='/classrooms'>Classrooms</a></li>
+                      <li><a href='/babies/new'>Add a new child</a></li>
                       <li><a href='/teachers/new'>Add a new teacher</a></li>
                 </ul>
             </nav>
@@ -45,7 +47,7 @@
         </div>
 
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
-        <script src="/js/games.js"></script>
+        <script src="/js/daycare.js"></script>
 
         @stack('body')
 
