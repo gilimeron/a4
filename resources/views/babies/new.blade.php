@@ -25,7 +25,7 @@
         <label for='age_group_id'>* Age group:</label>
         <select id='age_group_id' name='age_group_id'>
             <option value='0'>Choose</option>
-            @foreach($ageGroupsForDropdown as $age_group_id => $ageGroup)
+            @foreach($ageGroupList as $age_group_id => $ageGroup)
                 <option value='{{ $age_group_id }}'>
                     {{ $ageGroup }}
                 </option>
@@ -35,7 +35,7 @@
         <label for='classroom_id'>* Classroom:</label>
         <select id='classroom_id' name='classroom_id'>
             <option value='0'>Choose</option>
-            @foreach($classroomsForDropdown as $classroom_id => $classRoom)
+            @foreach($classroomList as $classroom_id => $classRoom)
                 <option value='{{ $classroom_id }}'>
                     {{ $classRoom }}
                 </option>

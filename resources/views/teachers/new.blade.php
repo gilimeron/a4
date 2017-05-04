@@ -28,9 +28,6 @@
         <label for='email'>* email Address</label>
         <input type='text' name='email' id='email' value='{{ old('email', '') }}'>
 
-        <label for='teacher_type'>* Teacher type</label>
-        <input type='text' name='teacher_type' id='teacher_type' value='{{ old('teacher_type', '') }}'>
-
         @if(count($errors) > 0)
             <div class='alert alert-danger'>
                 <ul>

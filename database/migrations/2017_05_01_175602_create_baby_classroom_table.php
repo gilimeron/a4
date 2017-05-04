@@ -16,7 +16,6 @@ class CreateBabyClassroomTable extends Migration
         Schema::create('baby_classroom', function (Blueprint $table)
         {
             $table->increments('id');
-            $table->timestamps();
             $table->integer('baby_id')->unsigned();
             $table->integer('classroom_id')->unsigned();
 

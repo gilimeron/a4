@@ -33,12 +33,12 @@ class BabyController extends Controller
     */
     public function addBaby(Request $request) {
 
-        $classroomsForDropdown = Classroom::classroomsForDropdown();
-        $ageGroupsForDropdown = AgeGroup::ageGroupsForDropdown();
+        $classroomList = Classroom::classroomList();
+        $ageGroupList = AgeGroup::ageGroupList();
 
         return view('babies.new')->with([
-            'classroomsForDropdown' => $classroomsForDropdown,
-            'ageGroupsForDropdown' => $ageGroupsForDropdown,
+            'classroomList' => $classroomList,
+            'ageGroupList' => $ageGroupList,
         ]);
     }
 
@@ -99,8 +99,8 @@ class BabyController extends Controller
     public function editBaby($id) {
 
         $baby = Baby::find($id);
-        $classroomsForDropdown = Classroom::classroomsForDropdown();
-        $ageGroupsForDropdown = AgeGroup::ageGroupsForDropdown();
+        $classroomList = Classroom::classroomList();
+        $ageGroupList = AgeGroup::ageGroupList();
 
         if(is_null($baby)) {
             Session::flash('message', 'The baby you requested was not found.');
@@ -110,8 +110,8 @@ class BabyController extends Controller
         return view('babies.edit')->with([
             'id' => $id,
             'baby' => $baby,
-            'classroomsForDropdown' => $classroomsForDropdown,
-            'ageGroupsForDropdown' => $ageGroupsForDropdown,
+            'classroomList' => $classroomList,
+            'ageGroupList' => $ageGroupList,
         ]);
 
     }

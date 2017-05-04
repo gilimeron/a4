@@ -27,19 +27,17 @@ class ClassroomController extends Controller
 
         return view('classrooms.index')->with([
             'classrooms' => $classrooms,
-            'babies' => $babies,
-            'teachers' => $teachers,
         ]);
     }
 
     public function viewClassroom($id) {
-        $classroom = Classroom::find($id);
-
+        $classroom = Classroom::with('teachers')->find($id);
         $babies = Baby::where('classroom_id','like',$id)->get();
-        $teachers = Teacher::with('classrooms')->get();
+        $teachers = [];
+        foreach($classroom->teachers as $teacher) {
+            $teachers[]=$teacher;
+          };
         $ageGroup = AgeGroup::where('id','like',$classroom->age_group_id)->get();
-
-
 
         return view('classrooms.view')->with([
             'classroom' => $classroom,

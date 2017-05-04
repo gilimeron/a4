@@ -11,18 +11,18 @@ class Classroom extends Model
   */
   public function teachers() {
 
-      return $this->belongsToMany('App\Teacher')->withTimestamps();
+      return $this->belongsToMany('App\Teacher');
   }
 
-  public static function classroomsForDropdown() {
+  public static function classroomList() {
 
       $classrooms = Classroom::orderBy('classroom_name','ASC')->get();
 
-      $classroomsForDropdown = [];
+      $classroomList = [];
 
       foreach($classrooms as $classroom) {
-          $classroomsForDropdown[$classroom['id']] = $classroom->classroom_name;
+          $classroomList[$classroom['id']] = $classroom->classroom_name;
       }
-      return $classroomsForDropdown;
+      return $classroomList;
   }
 }

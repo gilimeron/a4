@@ -58,7 +58,6 @@ class TeacherController extends Controller
         $teacher->address = $request->address;
         $teacher->phone_number = $request->phone_number;
         $teacher->email = $request->email;
-        $teacher->teacher_type = $request->teacher_type;
         $teacher->save();
 
         Session::flash('message', 'The teacher '.$request->first_name.' '.$request->last_name. ' was added to the database.');
@@ -113,7 +112,6 @@ class TeacherController extends Controller
         $teacher->address = $request->address;
         $teacher->phone_number = $request->phone_number;
         $teacher->email = $request->email;
-        $teacher->teacher_type = $request->teacher_type;
         $teacher->save();
 
         Session::flash('message', 'Your changes to '.$request->first_name.' '.$request->last_name. ' were saved.');

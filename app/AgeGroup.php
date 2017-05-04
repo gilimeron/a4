@@ -11,24 +11,24 @@ class AgeGroup extends Model
   */
   public function classrooms() {
   # AgeGroup has many classrooms - one-to-many relationship.
-      return $this->belongsToMany('App\Classroom');
+      return $this->hasMany('App\Classroom');
   }
 
   public function babies() {
   # AgeGroup has many babies - one-to-many relationship.
-      return $this->belongsToMany('App\Baby');
+      return $this->hasMany('App\Baby');
   }
 
-  public static function AgeGroupsForDropdown() {
+  public static function ageGroupList() {
 
       $ageGroups = AgeGroup::orderBy('age_group_name','ASC')->get();
 
-      $ageGroupsForDropdown = [];
+      $ageGroupList = [];
 
       foreach($ageGroups as $ageGroup) {
-          $ageGroupsForDropdown[$ageGroup['id']] = $ageGroup->age_group_name;
+          $ageGroupList[$ageGroup['id']] = $ageGroup->age_group_name;
       }
-      return $ageGroupsForDropdown;
+      return $ageGroupList;
   }
 
 }
