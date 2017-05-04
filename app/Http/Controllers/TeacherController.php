@@ -31,7 +31,13 @@ class TeacherController extends Controller
     * Display the form to add a new teacher
     */
     public function addTeacher(Request $request) {
-        return view('teachers.new');
+
+        $classroomList = Classroom::classroomList();
+
+        return view('teachers.new')->with([
+            'classroomList' => $classroomList,
+
+        ]);
     }
 
 
@@ -48,7 +54,6 @@ class TeacherController extends Controller
             'address' => 'required',
             'phone_number' => 'required',
             'email' => 'required|email',
-
         ]);
 
         # Add new teacher to database
@@ -58,6 +63,10 @@ class TeacherController extends Controller
         $teacher->address = $request->address;
         $teacher->phone_number = $request->phone_number;
         $teacher->email = $request->email;
+        $teacher->save();
+
+        $classrooms = ($request->classrooms) ?: [];
+        $teacher->classrooms()->sync($classrooms);
         $teacher->save();
 
         Session::flash('message', 'The teacher '.$request->first_name.' '.$request->last_name. ' was added to the database.');
@@ -81,9 +90,18 @@ class TeacherController extends Controller
             return redirect('/teachers');
         }
 
+        $classroomList = Classroom::classroomList();
+
+        $classroomsForTeacher = [];
+        foreach($teacher->classrooms as $classroom) {
+            $classroomsForTeacher[] = $classroom->classroom_name;
+        }
+
         return view('teachers.edit')->with([
             'id' => $id,
             'teacher' => $teacher,
+            'classroomList' => $classroomList,
+            'classroomsForTeacher' => $classroomsForTeacher,
         ]);
 
     }
@@ -101,17 +119,20 @@ class TeacherController extends Controller
           'address' => 'required',
           'phone_number' => 'required',
           'email' => 'required',
-
         ]);
 
         $teacher = Teacher::find($request->id);
 
-        # Edit player in the database
+        # Edit teacher in the database
         $teacher->first_name = $request->first_name;
         $teacher->last_name = $request->last_name;
         $teacher->address = $request->address;
         $teacher->phone_number = $request->phone_number;
         $teacher->email = $request->email;
+        #Handle classroom selection
+        $classrooms = ($request->classrooms) ?: [];
+        $teacher->classrooms()->sync($classrooms);
+
         $teacher->save();
 
         Session::flash('message', 'Your changes to '.$request->first_name.' '.$request->last_name. ' were saved.');

@@ -111,6 +111,25 @@ input[type=reset] {
     background-color:darkgray;
 }
 
+input[type='checkbox'] {
+    display:inline;
+}
+
+input[type='checkbox'] + label {
+    display:inline;
+}
+
+#classrooms {
+    text-align:left;
+    list-style-type:none;
+    margin:0;
+    padding:0;
+}
+
+#classrooms label {
+    font-weight:normal;
+}
+
 label {
     margin-top:20px;
     display:block;

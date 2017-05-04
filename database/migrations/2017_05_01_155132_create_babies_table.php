@@ -27,11 +27,9 @@ class CreateBabiesTable extends Migration
           $table->string('parent1_last_name');
           $table->string('parent2_first_name')->nullable();
           $table->string('parent2_last_name')->nullable();
-          $table->integer('age_group_id')->unsigned();
           $table->integer('classroom_id')->unsigned();
 
           #define the foreign keys
-          $table->foreign('age_group_id')->references('id')->on('age_groups');
           $table->foreign('classroom_id')->references('id')->on('classrooms');
       	});
     }

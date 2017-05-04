@@ -8,7 +8,6 @@ use Illuminate\Validation\Rule;
 use App\Baby;
 use App\Teacher;
 use App\Classroom;
-use App\AgeGroup;
 use Session;
 
 class ClassroomController extends Controller
@@ -37,13 +36,11 @@ class ClassroomController extends Controller
         foreach($classroom->teachers as $teacher) {
             $teachers[]=$teacher;
           };
-        $ageGroup = AgeGroup::where('id','like',$classroom->age_group_id)->get();
 
         return view('classrooms.view')->with([
             'classroom' => $classroom,
             'babies' => $babies,
             'teachers' => $teachers,
-            'ageGroup' => $ageGroup,
         ]);
     }
 

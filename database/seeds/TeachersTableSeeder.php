@@ -56,6 +56,33 @@ class TeachersTableSeeder extends Seeder
                 'address' => '5 Faith street, Cambridge 02139',
                 'phone_number' => '617-433-2343',
                 'email' => 'deed@gmail.com',
+        ]);
+        Teacher::insert([
+                'created_at' => Carbon\Carbon::now()->toDateTimeString(),
+                'updated_at' => Carbon\Carbon::now()->toDateTimeString(),
+                'first_name' => 'Lin',
+                'last_name' => 'Davidson',
+                'address' => '15 Sixth street, Cambridge 02139',
+                'phone_number' => '617-111-3432',
+                'email' => 'lindavdn@gmail.com',
+            ]);
+        Teacher::insert([
+                'created_at' => Carbon\Carbon::now()->toDateTimeString(),
+                'updated_at' => Carbon\Carbon::now()->toDateTimeString(),
+                'first_name' => 'Liz',
+                'last_name' => 'Gonzales',
+                'address' => '23 Elm street, Cambridge 02139',
+                'phone_number' => '617-232-1232',
+                'email' => 'gon873@gmail.com',
+            ]);
+        Teacher::insert([
+                'created_at' => Carbon\Carbon::now()->toDateTimeString(),
+                'updated_at' => Carbon\Carbon::now()->toDateTimeString(),
+                'first_name' => 'Mary',
+                'last_name' => 'Jablansky',
+                'address' => '123 Cambridge street, Cambridge 02139',
+                'phone_number' => '617-232-0987',
+                'email' => 'mjb2@gmail.com',
             ]);
     }
 }

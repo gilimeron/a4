@@ -28,6 +28,19 @@
         <label for='email'>* email Address</label>
         <input type='text' name='email' id='email' value='{{ old('email', '') }}'>
 
+        <label>Classrooms</label>
+        <ul id='classrooms'>
+            @foreach($classroomList as $id => $classroom_name)
+                <li><input
+                    type='checkbox'
+                    value='{{ $id }}'
+                    id='classroom_{{ $id }}'
+                    name='classrooms[]'>&nbsp;
+                <label for='classroom_{{ $id }}'>{{ $classroom_name }}</label></li>
+
+            @endforeach
+        </ul>
+
         @if(count($errors) > 0)
             <div class='alert alert-danger'>
                 <ul>

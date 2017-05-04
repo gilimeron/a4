@@ -33,10 +33,21 @@
         <label for='teacher_type'>* Head teacer or co teacher?</label>
         <input type='text' name='teacher_type' id='teacher_type' value='{{ old('teacher_type', $teacher->teacher_type) }}'>
 
+        <label>Classrooms</label>
+        <ul id='classrooms'>
+            @foreach($classroomList as $id => $classroom_name)
+                <li><input
+                    type='checkbox'
+                    value='{{ $id }}'
+                    id='classroom_{{ $id }}'
+                    name='classrooms[]'
+                    {{ (in_array($classroom_name, $classroomsForTeacher)) ? 'CHECKED' : '' }}
+                <label for='classroom_{{ $id }}'>{{ $classroom_name }}</label></li>
+            @endforeach
+        </ul>
+
         <br><input class='btn btn-primary' type='submit' value='Save changes'><br><br>
 
     </form>
-
-
 
 @endsection

@@ -22,16 +22,6 @@
         <label for='dob'>* Date of birth</label>
         <input type='date' name='dob' id='dob' value='{{ old('dob') }}'>
 
-        <label for='age_group_id'>* Age group:</label>
-        <select id='age_group_id' name='age_group_id'>
-            <option value='0'>Choose</option>
-            @foreach($ageGroupList as $age_group_id => $ageGroup)
-                <option value='{{ $age_group_id }}'>
-                    {{ $ageGroup }}
-                </option>
-            @endforeach
-        </select>
-
         <label for='classroom_id'>* Classroom:</label>
         <select id='classroom_id' name='classroom_id'>
             <option value='0'>Choose</option>

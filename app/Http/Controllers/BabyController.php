@@ -6,7 +6,6 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Validation\Rule;
 use App\Baby;
-use App\AgeGroup;
 use App\Classroom;
 use Session;
 
@@ -34,11 +33,9 @@ class BabyController extends Controller
     public function addBaby(Request $request) {
 
         $classroomList = Classroom::classroomList();
-        $ageGroupList = AgeGroup::ageGroupList();
 
         return view('babies.new')->with([
             'classroomList' => $classroomList,
-            'ageGroupList' => $ageGroupList,
         ]);
     }
 
@@ -52,7 +49,6 @@ class BabyController extends Controller
 
         # Custom error message
         $messages = [
-           'age_group_id.not_in' => 'Please select an age group',
            'classroom_id.not_in' => 'Please select a classroom',
            'dob.required' => 'The date of birth field is required',
            'parent1_first_name.required' => 'First Name of parent is required',
@@ -66,7 +62,6 @@ class BabyController extends Controller
             'phone_number' => 'required',
             'parent1_first_name' => 'required',
             'parent1_last_name' => 'required',
-            'age_group_id' => 'not_in:0',
             'classroom_id' => 'not_in:0',
         ], $messages);
 
@@ -80,7 +75,6 @@ class BabyController extends Controller
         $baby->parent1_first_name = $request->parent1_first_name;
         $baby->parent1_last_name = $request->parent1_last_name;
         $baby->parent2_first_name = $request->parent2_first_name;
-        $baby->age_group_id = $request->age_group_id;
         $baby->classroom_id = $request->classroom_id;
         $baby->save();
 
@@ -100,7 +94,6 @@ class BabyController extends Controller
 
         $baby = Baby::find($id);
         $classroomList = Classroom::classroomList();
-        $ageGroupList = AgeGroup::ageGroupList();
 
         if(is_null($baby)) {
             Session::flash('message', 'The baby you requested was not found.');
@@ -111,7 +104,6 @@ class BabyController extends Controller
             'id' => $id,
             'baby' => $baby,
             'classroomList' => $classroomList,
-            'ageGroupList' => $ageGroupList,
         ]);
 
     }
@@ -131,9 +123,7 @@ class BabyController extends Controller
           'phone_number' => 'required',
           'parent1_first_name' => 'required',
           'parent1_last_name' => 'required',
-          'age_group_id' => 'required',
           'parent1_last_name' => 'required',
-          'age_group_id' => 'required',
           'classroom_id' => 'required',
 
         ]);
@@ -149,7 +139,6 @@ class BabyController extends Controller
         $baby->parent1_last_name = $request->parent1_last_name;
         $baby->parent2_first_name = $request->parent2_first_name;
         $baby->parent2_last_name = $request->parent2_last_name;
-        $baby->age_group_id = $request->age_group_id;
         $baby->classroom_id = $request->classroom_id;
         $baby->save();
 

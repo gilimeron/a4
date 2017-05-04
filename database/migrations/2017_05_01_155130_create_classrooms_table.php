@@ -17,10 +17,8 @@ class CreateClassroomsTable extends Migration
         {
       		$table->increments('id');
       		$table->string('classroom_name');
-          $table->integer('age_group_id')->unsigned();
+          $table->string('age_group');
 
-          #define the foreign keys
-          $table->foreign('age_group_id')->references('id')->on('age_groups');
       	});
     }
 
