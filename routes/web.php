@@ -14,6 +14,9 @@ Route::get('/', function () {
 #GET route to view all babies
 Route::get('/babies', 'BabyController@index');
 
+#GET route to view baby details
+Route::get('/babies/view/{id}', 'BabyController@viewBaby');
+
 #GET route to add a new babies
 Route::get('/babies/new', 'BabyController@addBaby');
 
@@ -34,6 +37,9 @@ Route::post('/babies/delete', 'BabyController@delete');
 
 #GET route to view all teachers
 Route::get('/teachers', 'TeacherController@index');
+
+#GET route to view teacher details
+Route::get('/teachers/view/{id}', 'TeacherController@viewTeacher');
 
 #GET route to add a Teacher
 Route::get('/teachers/new', 'TeacherController@addTeacher');

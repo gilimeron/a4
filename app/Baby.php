@@ -14,9 +14,4 @@ class Baby extends Model
       return $this->belongsTo('App\Classroom');
   }
 
-  public function agegroup() {
-  # Baby belongs to one agegroup - inverse one-to-many relationship.
-      return $this->belongsTo('App\AgeGroup');
-  }
-
 }

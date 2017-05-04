@@ -27,6 +27,33 @@ class TeacherController extends Controller
 
     /**
     * GET
+    * /teachers/edit/{id}
+    * Show form to edit a teacher
+    */
+    public function viewTeacher($id) {
+
+        $teacher = Teacher::find($id);
+
+        if(is_null($teacher)) {
+            Session::flash('message', 'The teacher you requested was not found.');
+            return redirect('/teachers');
+        }
+
+        $classroomsForTeacher = [];
+        foreach($teacher->classrooms as $classroom) {
+            $classroomsForTeacher[] = $classroom->classroom_name;
+        }
+
+        return view('teachers.view')->with([
+            'id' => $id,
+            'teacher' => $teacher,
+            'classroomsForTeacher' => $classroomsForTeacher,
+        ]);
+
+    }
+
+    /**
+    * GET
     * /teachers/new
     * Display the form to add a new teacher
     */

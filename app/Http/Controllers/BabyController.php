@@ -27,6 +27,32 @@ class BabyController extends Controller
 
     /**
     * GET
+    * /babies/view/{id}
+    * Show form to view a baby
+    */
+    public function viewBaby($id) {
+
+        $baby = Baby::with('classroom')->find($id);
+
+        if(is_null($baby)) {
+            Session::flash('message', 'The baby you requested was not found.');
+            return redirect('/babies');
+        }
+
+        $classroom = $baby->classroom->classroom_name;
+        $age_group = $baby->classroom->age_group;
+
+        return view('babies.view')->with([
+            'id' => $id,
+            'baby' => $baby,
+            'classroom' => $classroom,
+            'age_group' => $age_group,
+        ]);
+
+    }
+
+    /**
+    * GET
     * /babies/new
     * Display the form to add a new baby
     */

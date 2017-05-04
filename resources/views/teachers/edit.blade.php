@@ -30,9 +30,6 @@
         <label for='email'>* email address</label>
         <input type='text' name='email' id='email' value='{{ old('email', $teacher->email) }}'>
 
-        <label for='teacher_type'>* Head teacer or co teacher?</label>
-        <input type='text' name='teacher_type' id='teacher_type' value='{{ old('teacher_type', $teacher->teacher_type) }}'>
-
         <label>Classrooms</label>
         <ul id='classrooms'>
             @foreach($classroomList as $id => $classroom_name)
