@@ -18,7 +18,7 @@
 </head>
 <body>
     <div id='image'>
-        <img src="/images/stickfigurekids.jpg" alt="stickfigurekids"</img>
+        <img src="/images/stickfigurekids.jpg" alt="stickfigurekids">
     </div>
     <div id='content'>
         @if(Session::get('message') != null)

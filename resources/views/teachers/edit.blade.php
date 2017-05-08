@@ -25,7 +25,7 @@
         <input type='text' name='address' id='address' value='{{ old('address', $teacher->address) }}'>
 
         <label for='phone_number'>* Phone number</label>
-        <input type='text' name='phone_number' id='address' value='{{ old('phone_number', $teacher->phone_number) }}'>
+        <input type='text' name='phone_number' id='phone_number' value='{{ old('phone_number', $teacher->phone_number) }}'>
 
         <label for='email'>* email address</label>
         <input type='text' name='email' id='email' value='{{ old('email', $teacher->email) }}'>
@@ -34,12 +34,12 @@
         <ul id='classrooms'>
             @foreach($classroomList as $id => $classroom_name)
                 <li><input
-                    type='checkbox'
-                    value='{{ $id }}'
-                    id='classroom_{{ $id }}'
+                    type='checkbox' value='{{ $id }}' id='classroom_{{ $id }}'
                     name='classrooms[]'
-                    {{ (in_array($classroom_name, $classroomsForTeacher)) ? 'CHECKED' : '' }}
-                <label for='classroom_{{ $id }}'>{{ $classroom_name }}</label></li>
+                    {{ (in_array($classroom_name, $classroomsForTeacher)) ? 'CHECKED' : '' }}>
+                    <label for='classroom_{{ $id }}'>{{ $classroom_name }}
+                    </label>
+                </li>
             @endforeach
         </ul>
 

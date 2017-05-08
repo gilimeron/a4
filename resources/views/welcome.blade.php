@@ -1,7 +1,7 @@
 @extends('layouts.master')
 
 @section('title')
-    Welcome
+    Daycare management app
 @endsection
 
 @section('content')
