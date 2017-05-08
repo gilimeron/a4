@@ -11,9 +11,9 @@
 
         {{ csrf_field() }}
 
-        <input type='hidden' name='id' value='{{ $teacher->id }}'?>
+        <input type='hidden' name='id' value='{{ $teacher->id }}'>
 
-        <h2>Are you sure you want to delete <em>{{ $teacher->first_name }}</em>?</h2>
+        <h2>Are you sure you want to delete {{ $teacher->first_name }}?</h2>
 
         <input type='submit' value='Yes, delete this teacher.' class='btn btn-danger'>
 

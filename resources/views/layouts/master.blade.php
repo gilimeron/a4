@@ -28,12 +28,30 @@
         <header>
             <nav>
                 <ul>
-                    <li><a href='/'>Home</a></li>
-                    <li><a href='/babies'>Children</a></li>
-                    <li><a href='/teachers'>Teachers</a></li>
-                    <li><a href='/classrooms'>Classrooms</a></li>
-                    <li><a href='/babies/new'>Add a new child</a></li>
-                    <li><a href='/teachers/new'>Add a new teacher</a></li>
+                    <li>
+                        <button class="dropbtn"> <a href='../'>Home</a></button>
+                    </li>
+                    <li>
+                        <button class="dropbtn"><a href='/classrooms'>Classrooms</a></button>
+                    </li>
+                    <li>
+                        <div class="dropdown">
+                            <button class="dropbtn">Children</button>
+                            <div class="dropdown-content">
+                                <a href='/babies'>All children</a>
+                                <a href='/babies/new'>Add a new child</a>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="dropdown">
+                            <button class="dropbtn">Teachers</button>
+                            <div class="dropdown-content">
+                                <a href='/teachers'>All teachers</a>
+                                <a href='/teachers/new'>Add a new teacher</a>
+                            </div>
+                        </div>
+                    </li>
                 </ul>
             </nav>
         </header>
