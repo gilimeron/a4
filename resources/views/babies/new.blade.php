@@ -6,7 +6,7 @@
 @endsection
 
 @section('content')
-    <h2>Add a new child</h1>
+    <h2>Add a new child</h2>
 
     <form method='POST' action='/babies/new'>
         {{ csrf_field() }}

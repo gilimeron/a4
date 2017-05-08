@@ -8,10 +8,8 @@
     <h2> Classrooms list </h2>
     <div class='classroom'>
         @foreach($classrooms as $classroom)
-            <ul>
-                <h3>{{ $classroom->classroom_name }}</h3>
-                <a href='/classrooms/view/{{ $classroom->id}}'> Details </a>
-            </ul>
+            <h3>{{ $classroom->classroom_name }}</h3>
+            <a href='/classrooms/view/{{ $classroom->id}}'> Details </a>
         @endforeach
     </div>
 @endsection
