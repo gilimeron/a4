@@ -7,6 +7,16 @@
 
 @section('content')
     <h2>Add a new teacher</h2>
+    
+    @if(count($errors) > 0)
+        <div class='alert alert-danger'>
+            <ul>
+                @foreach ($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                @endforeach
+            </ul>
+        </div>
+    @endif
 
     <form method='POST' action='/teachers/new'>
         {{ csrf_field() }}
@@ -23,7 +33,7 @@
         <input type='text' name='address' id='address' value='{{ old('address', '') }}'>
 
         <label for='phone_number'>* Phone number</label>
-        <input type='text' name='phone_number' id='phone_number' value='{{ old('phone_number', '') }}'>
+        <input type='text' name='phone_number' id='phone_number' placeholder='123-456-7891' value='{{ old('phone_number', '') }}'>
 
         <label for='email'>* email Address</label>
         <input type='text' name='email' id='email' value='{{ old('email', '') }}'>
@@ -39,16 +49,6 @@
                 <label for='classroom_{{ $id }}'>{{ $classroom_name }} </label></li>
             @endforeach
         </ul>
-
-        @if(count($errors) > 0)
-            <div class='alert alert-danger'>
-                <ul>
-                    @foreach ($errors->all() as $error)
-                        <li>{{ $error }}</li>
-                    @endforeach
-                </ul>
-            </div>
-        @endif
 
         <input class='btn btn-primary' type='submit' value='Save'>
         <input class='btn btn-primary' type="reset">

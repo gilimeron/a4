@@ -78,7 +78,7 @@ class TeacherController extends Controller
             'first_name' => 'required',
             'last_name' => 'required',
             'address' => 'required',
-            'phone_number' => 'required',
+            'phone_number' => 'required|regex:/^(\+0?1\s)?\(?\d{3}\)?[\s.-]\d{3}[\s.-]\d{4}$/',
             'email' => 'required|email',
         ]);
 
@@ -144,8 +144,8 @@ class TeacherController extends Controller
           'first_name' => 'required',
           'last_name' => 'required',
           'address' => 'required',
-          'phone_number' => 'required',
-          'email' => 'required',
+          'phone_number' => 'required|regex:/^(\+0?1\s)?\(?\d{3}\)?[\s.-]\d{3}[\s.-]\d{4}$/',
+          'email' => 'required|email',
         ]);
 
         $teacher = Teacher::find($request->id);

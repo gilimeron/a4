@@ -9,6 +9,16 @@
 @section('content')
     <h2> Edit: {{ $baby->first_name }} {{ $baby->last_name }}</h2>
 
+    @if(count($errors) > 0)
+        <div class='alert alert-danger'>
+            <ul>
+                @foreach ($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                @endforeach
+            </ul>
+        </div>
+    @endif
+
     <form method='POST' action='/babies/edit'>
         {{ csrf_field() }}
 
@@ -39,18 +49,18 @@
         <input type='text' name='address' id='address' value='{{ old('address', $baby->dob) }}'>
 
         <label for='phone_number'>* Phone number</label>
-        <input type='text' name='phone_number' id='phone_number' value='{{ old('phone_number', $baby->phone_number) }}'>
+        <input type='text' name='phone_number' id='phone_number' placeholder='123-456-7891' value='{{ old('phone_number', $baby->phone_number) }}'>
 
-        <label for='parent1_first_name'>* Parent1_first_name</label>
+        <label for='parent1_first_name'>* Name of first parent</label>
         <input type='text' name='parent1_first_name' id='parent1_first_name' value='{{ old('parent1_first_name', $baby->parent1_first_name) }}'>
 
-        <label for='parent1_last_name'>* parent1_last_name</label>
+        <label for='parent1_last_name'>* Surename of first parent</label>
         <input type='text' name='parent1_last_name' id='parent1_last_name' value='{{ old('parent1_last_name', $baby->parent1_last_name) }}'>
 
-        <label for='parent2_first_name'>parent2_first_name</label>
+        <label for='parent2_first_name'>Name of second parent</label>
         <input type='text' name='parent2_first_name' id='parent2_first_name' value='{{ old('parent2_first_name', $baby->parent2_first_name) }}'>
 
-        <label for='parent2_last_name'>parent2_last_name</label>
+        <label for='parent2_last_name'>Surename of second parent</label>
         <input type='text' name='parent2_last_name' id='parent2_last_name' value='{{ old('parent2_last_name', $baby->parent2_last_name) }}'>
 
         <br><input class='btn btn-primary' type='submit' value='Save changes'><br><br>

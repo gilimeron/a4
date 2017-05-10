@@ -76,15 +76,17 @@ class BabyController extends Controller
         $messages = [
            'classroom_id.not_in' => 'Please select a classroom',
            'dob.required' => 'The date of birth field is required',
-           'parent1_first_name.required' => 'First Name of parent is required',
+           'parent1_first_name.required' => 'First name of parent is required',
            'parent1_last_name.required' => 'Last name of parent is required',
+           'phone_number' => 'Please enter a valid phone number'
         ];
+
         $this->validate($request, [
             'first_name' => 'required',
             'last_name' => 'required',
             'dob' => 'required',
             'address' => 'required',
-            'phone_number' => 'required',
+            'phone_number' => 'required|regex:/^(\+0?1\s)?\(?\d{3}\)?[\s.-]\d{3}[\s.-]\d{4}$/',
             'parent1_first_name' => 'required',
             'parent1_last_name' => 'required',
             'classroom_id' => 'not_in:0',
@@ -140,18 +142,25 @@ class BabyController extends Controller
     */
     public function saveBaby(Request $request) {
 
-        $this->validate($request, [
-          'first_name' => 'required',
-          'last_name' => 'required',
-          'dob' => 'required',
-          'address' => 'required',
-          'phone_number' => 'required',
-          'parent1_first_name' => 'required',
-          'parent1_last_name' => 'required',
-          'parent1_last_name' => 'required',
-          'classroom_id' => 'required',
+        # Custom error message
+        $messages = [
+            'classroom_id.not_in' => 'Please select a classroom',
+            'dob.required' => 'The date of birth field is required',
+            'parent1_first_name.required' => 'First name of parent is required',
+            'parent1_last_name.required' => 'Last name of parent is required',
+            'phone_number' => 'Please enter a valid phone number',
+        ];
 
-        ]);
+        $this->validate($request, [
+            'first_name' => 'required',
+            'last_name' => 'required',
+            'dob' => 'required',
+            'address' => 'required',
+            'phone_number' => 'required|regex:/^(\+0?1\s)?\(?\d{3}\)?[\s.-]\d{3}[\s.-]\d{4}$/',
+            'parent1_first_name' => 'required',
+            'parent1_last_name' => 'required',
+            'classroom_id' => 'required',
+        ], $messages);
         $baby = Baby::find($request->id);
 
         # Edit a baby in the database

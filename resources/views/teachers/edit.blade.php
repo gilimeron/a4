@@ -8,6 +8,16 @@
 @section('content')
     <h2>Edit: {{ $teacher->first_name }} {{ $teacher->last_name }}</h2>
 
+    @if(count($errors) > 0)
+        <div class='alert alert-danger'>
+            <ul>
+                @foreach ($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                @endforeach
+            </ul>
+        </div>
+    @endif
+    
     <form method='POST' action='/teachers/edit'>
         {{ csrf_field() }}
 
@@ -25,7 +35,7 @@
         <input type='text' name='address' id='address' value='{{ old('address', $teacher->address) }}'>
 
         <label for='phone_number'>* Phone number</label>
-        <input type='text' name='phone_number' id='phone_number' value='{{ old('phone_number', $teacher->phone_number) }}'>
+        <input type='text' name='phone_number' id='phone_number' placeholder='123-456-7891' value='{{ old('phone_number', $teacher->phone_number) }}'>
 
         <label for='email'>* email address</label>
         <input type='text' name='email' id='email' value='{{ old('email', $teacher->email) }}'>
