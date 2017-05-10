@@ -17,5 +17,6 @@
         </p>
     </div>
     <div>
-      <img src="/images/daycare1.jpg" alt="daycare1" </img>
+        <img src="/images/daycare1.jpg" alt="daycare1">
+    </div>
 @endsection
