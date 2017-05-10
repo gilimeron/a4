@@ -12,8 +12,8 @@
     <link href="/css/styles.css" type='text/css' rel='stylesheet'>
 
     @stack('head')
-
 </head>
+
 <body>
     <div id='image'>
         <img src="/images/stickfigurekids.jpg" alt="stickfigurekids">
@@ -27,10 +27,11 @@
             <nav>
                 <ul>
                     <li>
-                        <button class="dropbtn"> <a href='/'>Home</a></button>
+                        <a href="/" class="dropbtn">Home</a>
+
                     </li>
                     <li>
-                        <button class="dropbtn"><a href='/classrooms'>Classrooms</a></button>
+                        <a href="/classrooms" class="dropbtn">Classrooms</a>
                     </li>
                     <li>
                         <div class="dropdown">
