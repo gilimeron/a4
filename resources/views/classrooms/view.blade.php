@@ -1,3 +1,4 @@
+{{-- /resources/views/classrooms/view.blade.php --}}
 @extends('layouts.master')
 
 @section('title')
@@ -6,7 +7,7 @@
 
 @section('content')
     <h2> {{ $classroom->classroom_name }} classroom details </h2>
-    <div class='classroom'>
+    <div>
         <h3>Classroom age group: </h3>
         {{ $classroom->age_group }}
         <br>

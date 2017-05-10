@@ -27,7 +27,7 @@
             <nav>
                 <ul>
                     <li>
-                        <button class="dropbtn"> <a href='../'>Home</a></button>
+                        <button class="dropbtn"> <a href='/'>Home</a></button>
                     </li>
                     <li>
                         <button class="dropbtn"><a href='/classrooms'>Classrooms</a></button>

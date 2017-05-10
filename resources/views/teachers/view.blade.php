@@ -7,7 +7,7 @@
 
 @section('content')
     <h2> Teacher - {{ $teacher->first_name }} {{ $teacher->last_name }} </h2>
-    <div class='teacher'>
+    <div>
         <h3>Address</h3>
         {{$teacher->address}}
         <h3>Phone number</h3>
@@ -20,4 +20,5 @@
         <br>
         @endforeach
     </div>
+
 @endsection

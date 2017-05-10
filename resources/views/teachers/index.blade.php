@@ -1,3 +1,4 @@
+{{-- /resources/views/teachers/index.blade.php --}}
 @extends('layouts.master')
 
 @section('title')
@@ -6,7 +7,7 @@
 
 @section('content')
     <h2> Teachers list </h2>
-    <div class='teacher'>
+    <div>
         @foreach($teachers as $teacher)
             <h3>{{ $teacher->first_name }} {{ $teacher->last_name }}</h3>
             <a href='/teachers/view/{{ $teacher->id}}'> View </a> ,

@@ -36,8 +36,7 @@
                     value='{{ $id }}'
                     id='classroom_{{ $id }}'
                     name='classrooms[]'>&nbsp;
-                <label for='classroom_{{ $id }}'>{{ $classroom_name }}</label></li>
-
+                <label for='classroom_{{ $id }}'>{{ $classroom_name }} </label></li>
             @endforeach
         </ul>
 

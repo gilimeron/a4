@@ -11,7 +11,6 @@ use Session;
 
 class BabyController extends Controller
 {
-
     /**
     * GET
     * /babies
@@ -28,7 +27,7 @@ class BabyController extends Controller
     /**
     * GET
     * /babies/view/{id}
-    * Show form to view a baby
+    * Show form to view a specific baby
     */
     public function viewBaby($id) {
 
@@ -54,7 +53,7 @@ class BabyController extends Controller
     /**
     * GET
     * /babies/new
-    * Display the form to add a new baby
+    * Display the form to add a new baby to the database
     */
     public function addBaby(Request $request) {
 
@@ -69,7 +68,7 @@ class BabyController extends Controller
     /**
     * POST
     * /babies/new
-    * Process the form for adding a new baby
+    * Process the form for adding a new baby to the database
     */
     public function saveNewBaby(Request $request) {
 
@@ -101,6 +100,7 @@ class BabyController extends Controller
         $baby->parent1_first_name = $request->parent1_first_name;
         $baby->parent1_last_name = $request->parent1_last_name;
         $baby->parent2_first_name = $request->parent2_first_name;
+        $baby->parent2_last_name = $request->parent2_last_name;
         $baby->classroom_id = $request->classroom_id;
         $baby->save();
 
@@ -131,13 +131,12 @@ class BabyController extends Controller
             'baby' => $baby,
             'classroomList' => $classroomList,
         ]);
-
     }
 
     /**
     * POST
     * /babies/edit
-    * Process form to save edits to a baby
+    * Process form to save changes
     */
     public function saveBaby(Request $request) {
 
@@ -170,7 +169,6 @@ class BabyController extends Controller
 
         Session::flash('message', 'Your changes to '.$baby->first_name.' ' .$baby->last_name. ' were saved.');
         return redirect('/babies');
-
     }
 
 
@@ -204,12 +202,9 @@ class BabyController extends Controller
             return redirect('/babies');
         }
 
-        #$baby->meetings()->detach();
-
         $baby->delete();
 
-        # Finish
-        Session::flash('message', $baby->first_name.' was deleted.');
+        Session::flash('message', $baby->first_name.' was deleted from the daycare database.');
         return redirect('/babies');
     }
 

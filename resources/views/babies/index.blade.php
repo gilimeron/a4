@@ -1,3 +1,4 @@
+{{-- /resources/views/babies/index.blade.php --}}
 @extends('layouts.master')
 
 @section('title')
@@ -6,7 +7,7 @@
 
 @section('content')
     <h2> Children list </h2>
-    <div class='baby'>
+    <div>
         @foreach($babies as $baby)
             <h3>{{ $baby->first_name }} {{ $baby->last_name }}</h3>
             <a href='/babies/view/{{ $baby->id}}'> View </a> ,

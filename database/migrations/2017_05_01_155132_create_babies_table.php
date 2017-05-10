@@ -20,7 +20,6 @@ class CreateBabiesTable extends Migration
       		$table->string('first_name');
       		$table->string('last_name');
           $table->string('dob');
-          $table->string('allergies')->nullable();
       		$table->string('address');
           $table->string('phone_number');
           $table->string('parent1_first_name');

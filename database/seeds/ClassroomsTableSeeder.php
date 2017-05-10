@@ -21,27 +21,27 @@ class ClassroomsTableSeeder extends Seeder
               'age_group' => 'Infants',
           ]);
       Classroom::insert([
-              'classroom_name' => 'Where is Waldo',
+              'classroom_name' => 'Dr. Seuss',
               'age_group' => 'Toddlers',
           ]);
       Classroom::insert([
-              'classroom_name' => 'Where is Spot',
+              'classroom_name' => 'Owl Babies',
               'age_group' => 'Toddlers',
           ]);
       Classroom::insert([
-              'classroom_name' => 'Dora The Explorer',
+              'classroom_name' => 'The Poky Little Puppy',
               'age_group' => 'Pre-K',
           ]);
       Classroom::insert([
-              'classroom_name' => 'Moon',
+              'classroom_name' => 'Goodbye Moon',
               'age_group' => 'Pre-K',
           ]);
       Classroom::insert([
-              'classroom_name' => 'Sun',
+              'classroom_name' => 'The Cat In The Hat',
               'age_group' => 'Kindergarten',
           ]);
       Classroom::insert([
-              'classroom_name' => 'Mars',
+              'classroom_name' => 'The Very Hungry Caterpillar',
               'age_group' => 'Kindergarten',
           ]);
 

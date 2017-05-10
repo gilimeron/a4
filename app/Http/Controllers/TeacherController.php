@@ -14,7 +14,7 @@ class TeacherController extends Controller
 
     /**
     * GET
-    * /teachers
+    * /teachers show all teachers
     */
     public function index(Request $request) {
 
@@ -49,7 +49,6 @@ class TeacherController extends Controller
             'teacher' => $teacher,
             'classroomsForTeacher' => $classroomsForTeacher,
         ]);
-
     }
 
     /**
@@ -92,6 +91,7 @@ class TeacherController extends Controller
         $teacher->email = $request->email;
         $teacher->save();
 
+        # sync between the classrooms and teachers table
         $classrooms = ($request->classrooms) ?: [];
         $teacher->classrooms()->sync($classrooms);
         $teacher->save();
@@ -156,7 +156,8 @@ class TeacherController extends Controller
         $teacher->address = $request->address;
         $teacher->phone_number = $request->phone_number;
         $teacher->email = $request->email;
-        #Handle classroom selection
+
+        #sync between classrooms and teachers tables
         $classrooms = ($request->classrooms) ?: [];
         $teacher->classrooms()->sync($classrooms);
 
@@ -170,7 +171,7 @@ class TeacherController extends Controller
 
     /**
     * GET
-    * Page to confirm deletion
+    * confirm teacher deletion
     */
     public function confirmTeacherDeletion($id) {
 
@@ -180,7 +181,6 @@ class TeacherController extends Controller
             Session::flash('message', 'Teacher not found.');
             return redirect('/teachers');
         }
-
         return view('teachers.delete')->with('teacher', $teacher);
     }
 
@@ -198,12 +198,12 @@ class TeacherController extends Controller
             return redirect('/teachers');
         }
 
+        # remove connection between classrooms and teachers table for that teacher
         $teacher->classrooms()->detach();
 
         $teacher->delete();
 
-        # Finish
-        Session::flash('message', $teacher->first_name.' '.$teacher->last_name. 'was deleted.');
+        Session::flash('message', $teacher->first_name.' '.$teacher->last_name. 'was deleted from the daycare database');
         return redirect('/teachers');
     }
 

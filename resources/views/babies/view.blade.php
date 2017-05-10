@@ -7,7 +7,7 @@
 
 @section('content')
     <h2> {{ $baby->first_name }} {{ $baby->last_name }} </h2>
-    <div class='baby'>
+    <div>
         <h3>Date of birth</h3>
         {{$baby->dob}}
         <h3>Classroom</h3>

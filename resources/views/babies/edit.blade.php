@@ -2,7 +2,7 @@
 @extends('layouts.master')
 
 @section('title')
-    Edit baby: {{ $baby->first_name }} {{ $baby->last_name }}
+    Edit details: {{ $baby->first_name }} {{ $baby->last_name }}
 @endsection
 
 
@@ -22,7 +22,7 @@
         <label for='last_name'>* Last name</label>
         <input type='text' name='last_name' id='last_name' value='{{ old('last_name', $baby->last_name) }}'>
 
-        <label for='dob'>Date of birth</label>
+        <label for='dob'>* Date of birth</label>
         <input type='text' name='dob' id='dob' value='{{ old('dob', $baby->dob) }}'>
 
         <label for='classroom_id'>* Classroom:</label>
@@ -35,16 +35,16 @@
             @endforeach
         </select>
 
-        <label for='address'>Address</label>
+        <label for='address'>* Address</label>
         <input type='text' name='address' id='address' value='{{ old('address', $baby->dob) }}'>
 
-        <label for='phone_number'>Phone number</label>
+        <label for='phone_number'>* Phone number</label>
         <input type='text' name='phone_number' id='phone_number' value='{{ old('phone_number', $baby->phone_number) }}'>
 
-        <label for='parent1_first_name'>Parent1_first_name</label>
+        <label for='parent1_first_name'>* Parent1_first_name</label>
         <input type='text' name='parent1_first_name' id='parent1_first_name' value='{{ old('parent1_first_name', $baby->parent1_first_name) }}'>
 
-        <label for='parent1_last_name'>parent1_last_name</label>
+        <label for='parent1_last_name'>* parent1_last_name</label>
         <input type='text' name='parent1_last_name' id='parent1_last_name' value='{{ old('parent1_last_name', $baby->parent1_last_name) }}'>
 
         <label for='parent2_first_name'>parent2_first_name</label>
@@ -56,7 +56,5 @@
         <br><input class='btn btn-primary' type='submit' value='Save changes'><br><br>
 
     </form>
-
-
 
 @endsection
