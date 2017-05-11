@@ -46,7 +46,7 @@
         </select>
 
         <label for='address'>* Address</label>
-        <input type='text' name='address' id='address' value='{{ old('address', $baby->dob) }}'>
+        <input type='text' name='address' id='address' value='{{ old('address', $baby->address) }}'>
 
         <label for='phone_number'>* Phone number</label>
         <input type='text' name='phone_number' id='phone_number' placeholder='123-456-7891' value='{{ old('phone_number', $baby->phone_number) }}'>

@@ -106,7 +106,7 @@ class BabyController extends Controller
         $baby->classroom_id = $request->classroom_id;
         $baby->save();
 
-        Session::flash('message',$request->first_name.' ' .$request->last_name. 'was added to the database.');
+        Session::flash('message',$request->first_name.' ' .$request->last_name. ' was added to the database.');
 
         # Redirect the user to babies index
         return redirect('/babies');
@@ -213,7 +213,7 @@ class BabyController extends Controller
 
         $baby->delete();
 
-        Session::flash('message', $baby->first_name.' was deleted from the daycare database.');
+        Session::flash('message', $baby->first_name.' ' .$baby->last_name. ' was deleted from the daycare database.');
         return redirect('/babies');
     }
 
