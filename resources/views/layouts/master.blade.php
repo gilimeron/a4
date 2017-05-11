@@ -60,7 +60,7 @@
         </section>
 
         <footer>
-            &copy;Gili Meron gili.meron@gmail.com
+            &copy; Gili Meron
         </footer>
     </div>
 
